@@ -13,6 +13,11 @@
          xsi:schemaLocation="http://pmd.sourceforge.net/ruleset/2.0.0 https://pmd.sourceforge.io/ruleset_2_0_0.xsd">
     <description>PMD quickstart, with Project Pulse's decisions.</description>
     <rule ref="rulesets/java/quickstart.xml">
+        <!-- D2: UnnecessaryConstructor and UncommentedEmptyConstructor are enforced. A JPA entity's
+             no-argument constructor is required at runtime, and deleting one compiles but fails when
+             Hibernate loads the entity; each required one now carries a comment saying so. -->
+        <!-- D3: ControlStatementBraces is enforced. An unbraced if body that later gains a second
+             line runs that line unconditionally, the goto-fail bug; braces cost one line each. -->
         <!-- D4: GuardLogStatement is off. Project Pulse logs through SLF4J {} placeholders, so no
              message string is built when a level is disabled, and every argument passed is a plain
              getter or count; a guard would add lines and save nothing. -->
