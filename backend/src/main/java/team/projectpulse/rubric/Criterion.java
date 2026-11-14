@@ -22,6 +22,7 @@ public class Criterion {
 
 
     public Criterion() {
+        // Required by JPA: Hibernate instantiates entities through a no-argument constructor.
     }
 
     public Criterion(String criterion, String description, Double maxScore) {

@@ -15,6 +15,7 @@ public class Student extends PeerEvaluationUser {
 
 
     public Student() {
+        // Required by JPA: Hibernate instantiates entities through a no-argument constructor.
     }
 
     public Student(String username, String firstName, String lastName, String email, String password, boolean enabled, String roles) {
