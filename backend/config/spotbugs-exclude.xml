@@ -7,4 +7,13 @@
 
      Unlike the baseline, this file may grow, but every entry is a reviewed decision. -->
 <FindBugsFilter>
+  <!-- D1: EI_EXPOSE_REP and EI_EXPOSE_REP2 are off project-wide.
+       JPA entities: a defensive copy would break Hibernate's change tracking, and Project Pulse
+       edits entities through their getters.
+       Spring beans: a controller or service keeping the bean injected into its constructor is how
+       dependency injection works. DTOs: each is built by a converter for one response, serialized,
+       and discarded; nothing keeps or shares one.
+       Known exception: PeerEvaluation.setRatings computes totalScore once, so a later change to its
+       list leaves the total stale; that belongs in that method's design, not in a project-wide rule. -->
+  <Match><Bug pattern="EI_EXPOSE_REP,EI_EXPOSE_REP2"/></Match>
 </FindBugsFilter>
