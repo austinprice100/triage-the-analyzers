@@ -13,5 +13,9 @@
          xsi:schemaLocation="http://pmd.sourceforge.net/ruleset/2.0.0 https://pmd.sourceforge.io/ruleset_2_0_0.xsd">
     <description>PMD quickstart, with Project Pulse's decisions.</description>
     <rule ref="rulesets/java/quickstart.xml">
+        <!-- D4: GuardLogStatement is off. Project Pulse logs through SLF4J {} placeholders, so no
+             message string is built when a level is disabled, and every argument passed is a plain
+             getter or count; a guard would add lines and save nothing. -->
+        <exclude name="GuardLogStatement"/>
     </rule>
 </ruleset>
