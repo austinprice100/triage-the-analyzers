@@ -6,6 +6,10 @@ import java.util.Locale;
 
 public class TeamSpecs {
 
+    private TeamSpecs() {
+        // Static Specification factories only; never instantiated.
+    }
+
     public static Specification<Team> containsTeamName(String providedTeamName) {
         return (root, query, criteriaBuilder) ->
                 criteriaBuilder.like(criteriaBuilder.lower(root.get("teamName")), "%" + providedTeamName.toLowerCase(Locale.ROOT) + "%");
