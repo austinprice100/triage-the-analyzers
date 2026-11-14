@@ -16,6 +16,7 @@ public class ResetPasswordToken {
 
 
     public ResetPasswordToken() {
+        // Required by JPA: Hibernate instantiates entities through a no-argument constructor.
     }
 
     public ResetPasswordToken(String email) {

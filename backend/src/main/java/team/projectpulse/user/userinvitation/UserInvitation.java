@@ -15,6 +15,7 @@ public class UserInvitation {
 
 
     public UserInvitation() {
+        // Required by JPA: Hibernate instantiates entities through a no-argument constructor.
     }
 
     public UserInvitation(String email, Integer courseId, Integer sectionId, String token, String role) {
